@@ -43,7 +43,7 @@ export default function Messenger() {
   const [users, setUsers] = useState([]);
   const socketRef = useRef(null);
   const [loading, setLoading] = useState(true);
-  const api = "https://roomsaraservernet.liara.run";
+  const api = "";
   const [routing, setRouting] = useState(false);
   const [err, setErr] = useState();
   const [showError, setShowError] = useState(true);
@@ -61,7 +61,7 @@ export default function Messenger() {
     if (typeof window !== "undefined") {
       const token = localStorage.getItem("AuthorizationRoomSara");
 
-      socket = io("https://roomsaraservernet.liara.run", {
+      socket = io("", {
         auth: {
           token: token || "",
         },

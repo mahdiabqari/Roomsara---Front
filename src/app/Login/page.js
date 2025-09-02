@@ -13,7 +13,7 @@ export default function login() {
   const [verifyCode, setVerifyCode] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(true);
-  const api = "https://roomsaraservernet.liara.run";
+  const api = "";
   const [loadingg, setLoadingg] = useState(false);
 
   async function sendInfo(e) {

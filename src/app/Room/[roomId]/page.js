@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaMicrophone, FaMicrophoneSlash } from "react-icons/fa";
 import SocketIOFileUpload from "socket.io-file-client";
 
-const socket = io("https://roomsaraservernet.liara.run", {
+const socket = io("", {
   auth: {
     token: localStorage.getItem("AuthorizationRoomSara"),
   },
@@ -47,7 +47,7 @@ export default function Room({ params }) {
   });
   const [showError, setShowError] = useState(true);
   const [image, setImage] = useState("");
-  const api = "https://roomsaraservernet.liara.run";
+  const api = "";
   const inviteLink = `https://roomsara.liara.run/Room/${roomId}`;
   const noneprofile = "/noneProfile.png";
   const [peerConncet, setPeerConnect] = useState(true);
