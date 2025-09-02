@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function Home() {
   const router = useRouter();
   const [step, setStep] = useState(1);
-  const api = "Api";
+  const api = "https://roomsaraservernet.liara.run";
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [verificationError, setVerificationError] = useState("");
