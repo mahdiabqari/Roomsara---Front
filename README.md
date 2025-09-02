@@ -1,12 +1,1 @@
-# Full stack Messenger
----
-Front-end : Created By Next.js & Tailwind
-
-Back-end : Created By Node.js
-
-
-### Click [here]() to see Demo 
-
-M.N.S//
-Mahdi abqari
-
+"Frontend of Roomsara – a social platform for real-time chat, user interactions, and community features. Built with React & Next 14, optimized for smooth messaging and modern UI."
