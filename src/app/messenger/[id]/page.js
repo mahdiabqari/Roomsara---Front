@@ -5,9 +5,9 @@ import React, { useState, useEffect } from 'react';
 
 
 
-export default function Messenger() {
+export default function Messenger({params}) {
 
-  const [userId, setUserId] = useState();
+  const [userId, setUserId] = useState(params.id);
 
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
@@ -18,18 +18,6 @@ export default function Messenger() {
   const [ selectShow , setSelectShow ] = useState(false)
   const [suggest, setSuggest] = useState([]);
   const [showres , setShowres] = useState(false)
-
-  useEffect(() => {
-    const url = window.location.href;
-    const id = url.substring(url.lastIndexOf('/') + 1);
-    setUserId(id);
-  }, []);
-
-  useEffect(() => {
-    if (userId) {
-      console.log(userId)
-    }
-  }, [userId]);
 
 
     //Messages
