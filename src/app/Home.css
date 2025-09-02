@@ -1,0 +1,602 @@
+/* styles.css */
+
+:root {
+  --primary-dark: #1a2332;
+  --primary-medium: #2c5282;
+  --primary-light: #4299e1;
+  --gray-dark: #2d3748;
+  --gray-light: #e2e8f0;
+  --white: #ffffff;
+  --gradient: linear-gradient(45deg, var(--primary-light), var(--primary-dark));
+}
+
+.animate-fade-in {
+  background: var(--gradient);
+  color: var(--white);
+  line-height: 1.6;
+  direction: rtl;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Helper Classes */
+.animate-fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s ease-out;
+}
+
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  padding: 0.5rem;
+}
+
+.logo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.logo:hover::before {
+  opacity: 0.6;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-light);
+  padding: 3px;
+  transition: all 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  position: relative;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-light);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::before {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+/* منو موبایل */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 70px;
+  right: -100%;
+  width: 80%;
+  height: calc(100vh - 70px);
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(25px);
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu.active {
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .logo img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav {
+    padding: 1rem;
+  }
+
+  .mobile-menu a {
+    font-size: 1.2rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu a:hover {
+    background: rgba(66, 153, 225, 0.2);
+    transform: translateX(-10px);
+  }
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.hero-image {
+  flex: 1;
+  position: relative;
+  height: 500px;
+  background: linear-gradient(45deg, var(--primary-light), var(--primary-dark));
+  border-radius: 20px;
+  overflow: hidden;
+  transform: perspective(1000px) rotateY(-10deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: var(--primary-light);
+  color: var(--white);
+}
+
+.btn-secondary {
+  border: 2px solid var(--primary-light);
+  color: var(--primary-light);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(66, 153, 225, 0.4);
+}
+
+/* Features Section */
+.features {
+  padding: 6rem 2rem;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--primary-light);
+  margin-bottom: 1rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+    padding-top: 8rem;
+  }
+
+  .hero-image {
+    width: 100%;
+    transform: none;
+    height: 300px;
+    margin-top: 2rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+:root {
+  --primary-dark: #1a365d;
+  --primary-medium: #2c5282;
+  --primary-light: #4299e1;
+  --gray-dark: #2d3748;
+  --gray-light: #e2e8f0;
+  --white: #ffffff;
+  --gradient: linear-gradient(45deg, var(--primary-light), var(--primary-dark));
+}
+
+.animate-fade-in {
+  background: var(--gradient);
+  color: var(--white);
+  line-height: 1.6;
+  direction: rtl;
+}
+
+/* انیمیشن‌های جدید */
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* گرادیان متحرک */
+.animated-gradient {
+  background: var(--gradient);
+  background-size: 200% 200%;
+  animation: gradientBackground 10s ease infinite;
+}
+
+/* افکت نور */
+.glow {
+  box-shadow: 0 0 20px rgba(66, 153, 225, 0.6);
+}
+
+/* فوتر */
+.footer {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: #cdcdcd;
+  padding: 3rem 1rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-links {
+  display: flex;
+
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-links a {
+  color: #cdcdcd;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--primary-light);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.social-icons a {
+  color: var(--white);
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: var(--primary-light);
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+  .footer-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .social-icons {
+    gap: 1rem;
+  }
+}
+/* تبلیغات و دانلود اپلیکیشن */
+.promo-section {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 15px;
+  margin: 2rem auto;
+  max-width: 1200px;
+  box-shadow: 0 0 10px rgba(173, 216, 230, 0.5);
+  direction: rtl;
+}
+
+/* متن اصلی */
+.promo-section .promo-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffffe0;
+}
+
+.promo-section .promo-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #cccccc;
+}
+
+/* بخش دانلود */
+.promo-section .download-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #cccccc;
+}
+
+/* دکمه‌های دانلود */
+.promo-section .download-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap; /* در صفحه‌های کوچک به خط بعد برن */
+}
+
+.btn-download {
+  padding: 1rem 2rem;
+  border: 2px solid #cccccc;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #cccccc;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.btn-download:hover {
+  background: #cccccc;
+  color: #000000;
+  transform: translateY(-3px);
+}
+
+/* حالت‌های ریسپانسیو */
+
+/* برای صفحه‌های کوچیک (موبایل) */
+@media (max-width: 768px) {
+  .promo-section {
+    padding: 2rem 1rem;
+  }
+
+  .promo-section .promo-content h2 {
+    font-size: 2rem;
+  }
+
+  .promo-section .promo-content p {
+    font-size: 1rem;
+  }
+
+  .promo-section .download-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .btn-download {
+    padding: 0.3rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* برای صفحه‌های خیلی کوچک (مثلاً گوشی‌های قدیمی) */
+@media (max-width: 480px) {
+  .promo-section {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .promo-section .promo-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .promo-section .promo-content p {
+    font-size: 0.9rem;
+  }
+
+  .promo-section .download-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .btn-download {
+    text-align: center;
+  }
+}

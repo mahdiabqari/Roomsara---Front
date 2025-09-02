@@ -1,0 +1,123 @@
+.header {
+  backdrop-filter: blur(5px);
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+    rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+    rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.Messages-box {
+  flex-direction: column;
+  border: solid rgb(0, 0, 0) 10px;
+  border-radius: 30px;
+}
+.Messages-box-MD {
+  flex-direction: column;
+  border: solid rgb(0, 0, 0) 10px;
+  border-right: 0px;
+  border-radius: 10px;
+}
+
+.show-absolute {
+  animation: show-absolute normal 1s;
+}
+@keyframes show-absolute {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.header-messages {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.message {
+  background-color: rgb(211, 226, 233);
+  border-end-end-radius: 10px;
+  border-top-left-radius: 10px;
+  border-end-start-radius: 10px;
+  animation: sendM normal cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.5s;
+  cursor: pointer;
+  color: black;
+  height: max-content;
+  word-wrap: break-word; /* اضافه شده */
+  overflow-wrap: break-word; /* اضافه شده */
+}
+@keyframes sendM {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.mic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+
+.user-from-userList {
+  animation: showuser normal cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.75s;
+}
+@keyframes showuser {
+  from {
+    opacity: 0.25;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.suggestLink {
+  animation: suggestLink normal 0.5s;
+}
+@keyframes suggestLink {
+  from {
+    opacity: 0;
+    transform: translateX(-110px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.bg-alert-err {
+  background-color: rgba(209, 56, 56, 0.637);
+}
+
+.chat-md-animate {
+  animation: chat-md-animate normal 0.5s;
+}
+@keyframes chat-md-animate {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.Messages-box-MD {
+  scrollbar-width: none; /* برای فایرفاکس */
+}
+
+.Messages-box-MD::-webkit-scrollbar {
+  display: none; /* برای کروم، سافاری و اج */
+}
+
